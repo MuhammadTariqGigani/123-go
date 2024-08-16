@@ -10,6 +10,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -29,8 +31,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       # Add or replace dependency steps here
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.3.6
+
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@78c01b705fd9d5ad960d432d3a0cfa341d50e410 # v1.179.1
         with:
@@ -39,9 +40,17 @@ jobs:
       # - name: Set up database schema
       #   run: bin/rails db:schema:load
       # Add or replace test runners here
-      - name: Run tests
+      - name: Load Transform
         run: load 'transform.rb' 
-            run
+
+      - name: Run
+        run: run 
+
+      - name: Upload data
+        uses: actions/upload-artifact@v4.3.6
+        with:
+          name: for_shopify.csv
+          path: for_shopify.csv
 
   # lint:
   #   runs-on: ubuntu-latest

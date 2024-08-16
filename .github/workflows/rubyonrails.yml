@@ -35,15 +35,18 @@ jobs:
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
-          ruby-version: '3.1' # Not needed with a .ruby-version file
+          ruby-version: 3.1.2
+          bundler-cache: true
+      - run: load 'transform.rb' 
+      - run: run 
 
           
       # Add or replace database setup steps here
       # - name: Set up database schema
       #   run: bin/rails db:schema:load
       # Add or replace test runners here
-      - name: Load Transform
-        run: run 'transform.rb' 
+      # - name: Load & Run Transform
+
 
       # - name: Run
       #   run: run 

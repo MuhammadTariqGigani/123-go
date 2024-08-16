@@ -33,7 +33,7 @@ jobs:
       # Add or replace dependency steps here
 
       - name: Install Ruby and gems
-      - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
           ruby-version: '3.1' # Not needed with a .ruby-version file
 

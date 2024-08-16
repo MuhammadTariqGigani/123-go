@@ -43,10 +43,10 @@ jobs:
       #   run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Load Transform
-        run: load 'transform.rb' 
+        run: run 'transform.rb' 
 
-      - name: Run
-        run: run 
+      # - name: Run
+      #   run: run 
 
       - name: Upload data
         uses: actions/upload-artifact@v4.3.6
